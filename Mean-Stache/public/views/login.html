@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <h2>Create a new login</h2>
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="login" ng-model='vm.login.pseudo'>
+                <input type="text" class="form-control" placeholder="login" ng-model='vm.login.mail'>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" ng-model='vm.login.news'>Newsletter Mean Stache</label>
+            </div>
+            <button ng-click='vm.create()' class="btn btn-default">Add</button>
+        </form>
+        <h2 ng-show='vm.logins.length>0'>My logins</h2>
+        <div class="panel panel-default" ng-repeat='login in vm.logins | orderBy: "description"'>
+            <div class="panel-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="login" ng-model='login.pseudo'>
+                        <input type="text" class="form-control" placeholder="login" ng-model='login.mail'>
+                    </div>
+                    <div class="checkbox">
+                      <label><input type="checkbox" value="{{login.news}}" >Newsletter Mean Stache</label>
+                    </div>
+                    <button ng-click='vm.update(login)' class="btn btn-default">Edit</button>
+                    <button ng-click='vm.delete(login)' class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
