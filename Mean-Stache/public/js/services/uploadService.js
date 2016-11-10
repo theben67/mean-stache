@@ -8,10 +8,12 @@ class uploadService {
         return this.$http.post('/api/uploads', {
           description: data.description,
           image: data.image,
-          user_id: data.user_id
+          localisation: data.localisation
         })
     }
-
+    getComment(id_upload) {
+      return this.$http.get('/api/todos/'+id_upload);
+    }
     getAll() {
         return this.$http.get('/api/uploads')
     }
@@ -24,7 +26,7 @@ class uploadService {
         return this.$http.put('/api/uploads/' + id, {
           description: data.description,
           image: data.image,
-          user_id: data.user_id
+          localisation: data.localisation
         })
     }
 

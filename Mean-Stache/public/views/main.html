@@ -1,24 +1,37 @@
 <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <h2>Create a new todo</h2>
-        <form class="form-inline">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Todo" ng-model='vm.upload'>
-            </div>
+        <h2>Bienvenue sur la Mean Stache</h2>
 
-        </form>
-        <h2 ng-show='vm.uploads.length>0'>My todos</h2>
-        <div class="panel panel-default" ng-repeat='todo in vm.uploads | orderBy: "_id"'>
+        <div ng-controller="uploadController as vm">
+        <h2 ng-show='vm.uploads.length>0'>My uploads</h2>
+        <div class="panel panel-default" ng-repeat='upload in vm.uploads | orderBy: "_id"'>
             <div class="panel-body">
                 <form class="form-inline">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Todo" ng-model='upload.description'>
+                        <input type="text" class="form-control" disabled="disabled" placeholder="upload" ng-model='upload.description'>
                         <img src="{{upload.image}}" alt="image moustache"/>
+                        <input type="text" class="form-control" disabled="disabled" placeholder="upload" ng-model='upload.localisation'>
+                        <button ng-click='vm.create()' class="btn btn-default">Créer</button>
+
+                        <div class="panel panel-default" ng-repeat='todo in vm.todos | orderBy: "_id"'>
+                            <div class="panel-body">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" disabled="disabled" placeholder="upload" ng-model='todo.commentaire'>
+                                        <input type="text" class="form-control" disabled="disabled" placeholder="upload" ng-model='todo.stars'>
+                                        <input type="text" class="form-control" disabled="disabled" placeholder="upload" ng-model='todo.user_id_note'>
+                                        <input type="text" class="form-control" disabled="disabled" placeholder="upload" ng-model='todo.image_id'>
+                                        <button ng-click='vm.update(todo)' class="btn btn-default">Edit</button>
+                                        <button ng-click='vm.delete(todo)' class="btn btn-danger">Delete</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                     </div>
-                    <button ng-click='vm.update(todo)' class="btn btn-default">Edit</button>
-                    <button ng-click='vm.delete(todo)' class="btn btn-danger">Delete</button>
                 </form>
             </div>
+        </div>
         </div>
     </div>
 </div>

@@ -8,6 +8,12 @@ class uploadController {
     load() {
         this.uploadService.getAll().then((res) => {
             this.uploads = res.data;
+            this.uploads.map((e) => {
+                this.uploadService.getComment(e._id).then((re) => {
+                    e.comments = re.data;
+                })
+                return e;
+            })
         })
     }
 
@@ -19,7 +25,7 @@ class uploadController {
     }
 
     update(upload) {
-        this.uploadService.update(upload._id,upload).then(() => {
+        this.uploadService.update(upload._id, upload).then(() => {
             this.load()
         })
     }

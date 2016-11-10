@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const uploadSchema = new mongoose.Schema({
     description: String,
     image: String,
-    user_id : String
+    localisation: String
 });
 
 let model = mongoose.model('Upload', uploadSchema);
@@ -34,7 +34,7 @@ export default class Upload {
         model.create({
                 description: req.body.description,
                 image: req.body.image,
-                user_id : req.body.user_id
+                localisation : req.body.localisation
             },
             (err, upload) => {
                 if (err) {
@@ -51,7 +51,7 @@ export default class Upload {
         }, {
             description: req.body.description,
             image: req.body.image,
-            user_id : req.body.user_id
+            localisation : req.body.localisation
         }, (err, upload) => {
             if (err || !upload) {
                 res.status(500).send(err.message);

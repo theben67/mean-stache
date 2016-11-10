@@ -3,20 +3,20 @@
         <h2>Create a new upload</h2>
         <form class="form-inline">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="upload" ng-model='vm.upload.description'>
-                <input file-upload type="file" class="form-control" placeholder="upload" ng-model='vm.upload.image'>
-                <input type="text" class="form-control" placeholder="upload" ng-model='vm.upload.user_id'>
+                <input type="text" class="form-control" placeholder="Description image" ng-model='vm.upload.description'>
+                <input file-upload type="file" class="form-control" placeholder="Image moustache" ng-model='vm.upload.image'>
+                <input type="text" class="form-control" placeholder="Géolocalisation" ng-model='vm.upload.localisation'>
             </div>
             <button ng-click='vm.create()' class="btn btn-default">Add</button>
         </form>
         <h2 ng-show='vm.uploads.length>0'>My uploads</h2>
-        <div class="panel panel-default" ng-repeat='upload in vm.uploads | orderBy: "description"'>
+        <div class="panel panel-default" ng-repeat='upload in vm.uploads | orderBy: "_id"'>
             <div class="panel-body">
                 <form class="form-inline">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="upload" ng-model='upload.description'>
                         <img src="{{upload.image}}" alt="image moustache"/>
-                        <input type="text" class="form-control" placeholder="upload" ng-model='vm.upload.user_id'>
+                        <input type="text" class="form-control" placeholder="upload" ng-model='upload.localisation'>
                     </div>
                     <button ng-click='vm.update(upload)' class="btn btn-default">Edit</button>
                     <button ng-click='vm.delete(upload)' class="btn btn-danger">Delete</button>

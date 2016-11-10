@@ -9,7 +9,7 @@
             <div class="checkbox">
               <label><input type="checkbox" value="" ng-model='vm.login.news'>Newsletter Mean Stache</label>
             </div>
-            <button ng-click='vm.create()' class="btn btn-default">Add</button>
+            <a href="#/main"><button ng-click='vm.create()' class="btn btn-default">Valider</button></a>
         </form>
         <h2 ng-show='vm.logins.length>0'>My logins</h2>
         <div class="panel panel-default" ng-repeat='login in vm.logins | orderBy: "description"'>

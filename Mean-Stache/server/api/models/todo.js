@@ -21,6 +21,16 @@ export default class Todo {
         });
     }
 
+    getcijbnuobu(req, res) {
+        model.find({image_id:req.params.upload_id}, (err, todos) => {
+            if (err) {
+                res.sendStatus(403);
+            } else {
+                res.json(todos);
+            }
+        });
+    }
+
     findById(req, res) {
         model.findById(req.params.id, (err, todo) => {
             if (err || !todo) {

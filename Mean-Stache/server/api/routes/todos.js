@@ -9,6 +9,8 @@ module.exports = (app) => {
 
     router.get('/', todo.findAll);
 
+    router.get('/:upload_id', todo.getcijbnuobu);
+    
     router.get('/:id', todo.findById);
 
     router.post('/', todo.create);
